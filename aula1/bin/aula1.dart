@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:core';
 
 /*
 Lista de Exercícios:
@@ -406,20 +407,23 @@ Acima de 200Km percorridos: R$0,25 por Km
 */
 double calcularAluguelCarro(int tipoCarro, int diasAluguel, int quilometros) {
   double precoAluguel = 0.00;
-  if (tipoCarro == 1) {
-    if (quilometros <= 100) {
-      precoAluguel = (90.00 * diasAluguel) + (quilometros * 0.20);
-    } else {
-      precoAluguel = (90.00 * diasAluguel) + (quilometros * 0.10);
-    }
-  } else if (tipoCarro == 2) {
-    if (quilometros <= 200) {
-      precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.30);
-    } else {
-      precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.25);
-    }
-  } else {
-    print("Informação Inválida.");
+  switch (tipoCarro) {
+    case 1:
+      if (quilometros <= 100) {
+        precoAluguel = (90.00 * diasAluguel) + (quilometros * 0.20);
+      } else {
+        precoAluguel = (90.00 * diasAluguel) + (quilometros * 0.10);
+      }
+      break;
+    case 2:
+      if (quilometros <= 200) {
+        precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.30);
+      } else {
+        precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.25);
+      }
+      break;
+    default:
+      print("Informação Inválida.");
   }
   return precoAluguel;
 }
@@ -464,7 +468,39 @@ Homens
   de 20 até 30 anos de empresa: +13%
   mais de 30 anos de empresa: +25%
 */
-
+double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
+  double salarioRejustado = 0.00;
+  num percentual = 0;
+  switch (genero) {
+    case 1:
+      if (anosTrabalho < 15) {
+        percentual = 5;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      } else if ((anosTrabalho >= 15) && (anosTrabalho <= 20)) {
+        percentual = 12;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      } else {
+        percentual = 23;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      }
+      break;
+    case 2:
+      if (anosTrabalho < 20) {
+        percentual = 3;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      } else if ((anosTrabalho >= 20) && (anosTrabalho <= 30)) {
+        percentual = 13;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      } else {
+        percentual = 25;
+        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+      }
+      break;
+    default:
+      print("Informação Inválida.");
+  }
+  return salarioRejustado;
+}
 
 // Exercício 30
 /*
@@ -472,24 +508,71 @@ Desenvolva um algoritmo que mostre uma contagem regressiva de 30 até 1,
 marcando os números que forem divisíveis por 4, exatamente como mostrado
 abaixo: 30 29 [28] 27 26 25 [24] 23 22 21 [20] 19 18 17 [16]...
 */
+void realizarContagemRegressiva() {
+  for (int i = 30; i >= 1; i--) {
+    if (i % 4 == 0) {
+      print("[$i]");
+    } else {
+      print("$i");
+    }
+  }
+}
 
 // Exercício 31
 /*
 Crie um programa que calcule e mostre na tela o resultado da soma entre 6 + 8 +
 10 + 12 + 14 + ... + 98 + 100.
 */
+int calcularSoma() {
+  int soma = 0;
+  for (int i = 6; i <= 100; i += 2) {
+    soma = soma + i;
+  }
+  return soma;
+}
 
 // Exercício 32
 /*
 Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450
 + 400 +350 + 300 + ... + 50 + 0
 */
+int calcularExpressao() {
+  int soma = 0;
+  for (int i = 500; i >= 0; i -= 50) {
+    soma = soma + i;
+  }
+  return soma;
+}
 
 // Exercício 33
 /*
 Desenvolva uma aplicação que leia 6 números em um vetor, e no final mostre
 quantos deles são impares e quantos são pares. Imprima também os valores.
 */
+List lerVetor(int posicoes) {
+  List<int> lista = [];
+  for (int i = 0; i < posicoes; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      int numero = int.parse(valor);
+      lista.add(numero);
+    }
+  }
+  return lista;
+}
+
+void verificarImparParVetor(List lista, int posicoes) {
+  int impar = 0;
+  int par = 0;
+  for (int i = 0; i < posicoes; i++) {
+    if (lista[i] % 2 != 0) {
+      impar = impar + 1;
+    } else {
+      par = par + 1;
+    }
+  }
+  print("Esse vetor possui $impar números ímpares e $par números pares.");
+}
 
 // Exercício 34
 /*
@@ -1043,20 +1126,6 @@ o maior - Não existe valor maior, os dois são iguais */
         }
         break;
       case 29:
-/*
-Uma empresa precisa reajustar o salário dos seus funcionários, dando um
-aumento de acordo com alguns fatores. Faça um programa que leia o salário
-atual, o gênero do funcionário e há quantos anos esse funcionário trabalha na
-empresa. No final, mostre o seu novo salário, baseado na tabela a seguir:
-Mulheres
-  menos de 15 anos de empresa: +5%
-  de 15 até 20 anos de empresa: +12%
-  mais de 20 anos de empresa: +23%
-Homens
-  menos de 20 anos de empresa: +3%
-  de 20 até 30 anos de empresa: +13%
-  mais de 30 anos de empresa: +25%
-*/
         {
           print("Qual o salário atual desse funcionário?");
           String? valor1 = stdin.readLineSync();
@@ -1064,43 +1133,37 @@ Homens
           String? valor2 = stdin.readLineSync();
           print("Há quantos anos esse funcionário trabalha na empresa?");
           String? valor3 = stdin.readLineSync();
+          if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
+            double salario = double.parse(valor1);
+            int genero = int.parse(valor2);
+            int anosTrabalho = int.parse(valor3);
+            print("O novo salário desse funcionário é ${converterDecimal(calcularReajusteSalario(salario, genero, anosTrabalho))} reais.");
+          } else {
+            print("Nenhuma das informações pode ser nula.");
+          }
         }
         break;
       case 30:
-/*
-Desenvolva um algoritmo que mostre uma contagem regressiva de 30 até 1,
-marcando os números que forem divisíveis por 4, exatamente como mostrado
-abaixo: 30 29 [28] 27 26 25 [24] 23 22 21 [20] 19 18 17 [16]...
-*/
         {
-          
+         realizarContagemRegressiva();
         }
         break;
       case 31:
-/*
-Crie um programa que calcule e mostre na tela o resultado da soma entre 6 + 8 +
-10 + 12 + 14 + ... + 98 + 100.
-*/
         {
-
+          print("O resultado da soma é ${calcularSoma()}.");
         }
         break;
       case 32:
-/*
-Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450
-+ 400 +350 + 300 + ... + 50 + 0
-*/
         {
-          
+          print("O resultado da soma da expressão é ${calcularExpressao()}.");
         }
         break;
       case 33:
-/*
-Desenvolva uma aplicação que leia 6 números em um vetor, e no final mostre
-quantos deles são impares e quantos são pares. Imprima também os valores.
-*/
         {
-          
+          int posicoes = 6;
+          List lista = lerVetor(posicoes);
+          verificarImparParVetor(lista, posicoes);
+          print("$lista");
         }
         break;
       case 34:
@@ -1121,7 +1184,7 @@ Desenvolva uma aplicação que leia o preço de 8 produtos, e armazenem em uma
 lista. No final, mostre na tela qual foi o maior e qual foi o menor preço informado.
 */
         {
-          
+          int posicoes = 8;
         }
         break;
       case 36:
