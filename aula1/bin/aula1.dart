@@ -21,10 +21,10 @@ void calcularIdade(int anoNascimento, int anoAtual) {
   int idadeMeses = idade * 12;
   int idadeSemanas = idade * 52;
   int idadeDias = idade * 365;
-  print("A idade dessa pessoa em anos é: $idade anos.");
-  print("A idade dessa pessoa em meses é: $idadeMeses meses.");
-  print("A idade dessa pessoa em dias é: $idadeDias dias.");
-  print("A idade dessa pessoa em semanas é: $idadeSemanas semanas.");
+  print("A idade dessa pessoa em anos é: $idade anos."
+        "\nA idade dessa pessoa em meses é: $idadeMeses meses."
+        "\nA idade dessa pessoa em dias é: $idadeDias dias."
+        "\nA idade dessa pessoa em semanas é: $idadeSemanas semanas.");
 }
 
 // Exercício 4
@@ -66,10 +66,10 @@ void calcularOperacoesBasicas(num A, num B) {
   num subtracao = A - B;
   num divisao = A / B;
   num multiplicacao = A * B;
-  print("O resultado da soma entre A e B é: $soma");
-  print("O resultado da subtracao entre A e B é: $subtracao");
-  print("O resultado da divisao de A por B é: $divisao");
-  print("O resultado da multiplicacao de A por B é: $multiplicacao");
+  print("O resultado da soma entre A e B é: $soma"
+        "\nO resultado da subtracao entre A e B é: $subtracao"
+        "\nO resultado da divisao de A por B é: $divisao"
+        "\nO resultado da multiplicacao de A por B é: $multiplicacao");
 }
 
 // Exercício 11
@@ -81,8 +81,8 @@ num calcularVolumeEsfera(double raio, double pi) {
 void calcularSucessorAntecessor(int numero) {
   int sucessor = numero + 1;
   int antecessor = numero - 1;
-  print("O sucessor do número $numero é: $sucessor");
-  print("O antecessor do número $numero é: $antecessor");
+  print("O sucessor do número $numero é: $sucessor"
+        "\nO antecessor do número $numero é: $antecessor");
 }
 
 // Exercício 13
@@ -363,9 +363,9 @@ void verificarVetor() {
       listaPar.add(lista[i]);
     }
   }
-  print("Esse vetor possui $impar números ímpares e $par números pares.");
-  print("Vetor: $lista.");
-  print("Os números ímpares são $listaImpar e os números pares são $listaPar.");
+  print("Esse vetor possui $impar números ímpares e $par números pares."
+        "\nVetor: $lista."
+        "\nOs números ímpares são $listaImpar e os números pares são $listaPar.");
 }
 
 // Exercício 34
@@ -381,9 +381,9 @@ void sorteioNumerico() {
       divisivelTres = divisivelTres + 1;
     }
   }
-  print("Os números sorteados foram: $lista");
-  print("$acimaCinco números estão acima de 5");
-  print("$divisivelTres números são divisíveis por 3");
+  print("Os números sorteados foram: $lista"
+        "\n$acimaCinco números estão acima de 5"
+        "\n$divisivelTres números são divisíveis por 3");
 }
 
 // Exercício 35
@@ -434,13 +434,62 @@ void verificarVetorIdade() {
     }
   }
   num mediaIdade = (somaIdade / 10).round();
-  print("A média de idade do grupo é $mediaIdade anos.");
-  print("A quantidade de pessoas com mais de 18 anos é $idadeMaior");
-  print("A quantidade de pessoas com menos de 5 anos é $idadeMenor");
-  print("A maior idade do grupo é $maiorIdade");
+  print("A média de idade do grupo é $mediaIdade anos."
+        "\nA quantidade de pessoas com mais de 18 anos é $idadeMaior"
+        "\nA quantidade de pessoas com menos de 5 anos é $idadeMenor"
+        "\nA maior idade do grupo é $maiorIdade");
 }
 
 // Exercício 37
+void calcularVetorIdadeSexo() {
+  List<int> listaIdade = [];
+  List<int> listaSexo = [];
+  print("Digite a idade de cinco pessoas:");
+  for (int i = 0; i < 5; i++) {
+    String? valor = stdin.readLineSync();
+    if(valor != null) {
+      int idade = int.parse(valor);
+      listaIdade.add(idade);
+    }
+  }
+  print("Digite o sexo de cinco pessoas: (1 - feminino e 2 - masculino)");
+  for (int i = 0; i < 5; i++) {
+    String? valor = stdin.readLineSync();
+    if(valor != null) {
+      int sexo = int.parse(valor);
+      listaSexo.add(sexo);
+    }
+  }
+  int somaHomens = 0;
+  int somaMulheres = 0;
+  int somaIdade = 0;
+  int somaIdadeHomens = 0;
+  int somaMulheresMaiores = 0;
+  for (int i = 0; i < 5; i++) {
+    switch (listaSexo[i]) {
+      case 1:
+        somaMulheres = somaMulheres + 1;
+        if (listaIdade[i] > 20) {
+          somaMulheresMaiores = somaMulheresMaiores + 1;
+        }
+        break;
+      case 2:
+        somaHomens = somaHomens + 1;
+        somaIdadeHomens = somaIdadeHomens + listaIdade[i];
+        break;
+      default:
+        print("Valor Inválido.");
+    }
+    somaIdade = somaIdade + listaIdade[i];
+  }
+  num mediaIdade = (somaIdade / 5).round();
+  num mediaIdadeHomens = (somaIdadeHomens / somaHomens).round();
+  print("Foram cadastrados $somaHomens homens."
+        "\nForam cadastradas $somaMulheres mulheres."
+        "\nA média da idade do grupo é $mediaIdade anos."
+        "\nA média da idade dos homens é $mediaIdadeHomens anos."
+        "\nExistem $somaMulheresMaiores mulheres com mais de 20 anos.");
+}
 
 // Exercício 38
 void verificarPosicaoParVetor() {
@@ -454,7 +503,7 @@ void verificarPosicaoParVetor() {
   }
   for (int i = 0; i < 10; i++) {
     if (lista[i] % 2 == 0) {
-      print("Número ${lista[i]} na posição $i");
+      print("Número ${lista[i]} na posição ${i + 1}");
     }
   }
 }
@@ -471,31 +520,73 @@ List sortearNumeros() {
 
 // Exercício 40
 void lerVetorIdades() {
-  List<int> lista = [];
+  List<int> listaIdade = [];
   for (int i = 0; i < 8; i++) {
     String? valor = stdin.readLineSync();
     if (valor != null) {
       int idade = int.parse(valor);
-      lista.add(idade);
+      listaIdade.add(idade);
     }
   }
   int somaIdade = 0;
   int maiorIdade = 0;
-  for (int i = 0; i < 10; i++) {
-    somaIdade = somaIdade + lista[i];
-    if (maiorIdade < lista[i]) {
-      maiorIdade = lista[i];
+  List<int> listaPosicoes = [];
+  List<int> listaMaiorIdade = [];
+  for (int i = 0; i < 8; i++) {
+    somaIdade = somaIdade + listaIdade[i];
+    if (maiorIdade < listaIdade[i]) {
+      maiorIdade = listaIdade[i];
+    }
+    if (listaIdade[i] > 25) {
+      listaPosicoes.add(i + 1);
     }
   }
-  num mediaIdade = (somaIdade / 10).round();
-  print("A média de idade das pessoas cadastradas é $mediaIdade anos.");
-
-  print("A maior idade do grupo é $maiorIdade");
-  
+  for (int i = 0; i < 8; i++) {
+    if (listaIdade[i] == maiorIdade) {
+      listaMaiorIdade.add(i + 1);
+    }
+  }
+  num mediaIdade = (somaIdade / 8).round();
+  print("A média de idade das pessoas cadastradas é $mediaIdade anos."
+        "\nTemos pessoas com mais de 25 anos nas posições $listaPosicoes."
+        "\nA maior idade do grupo é $maiorIdade anos."
+        "\nA maior idade foi digitada nas posições $listaMaiorIdade.");
 }
 
-
 // Exercício 41
+void lerVetorNotas() {
+  List<double> listaNotas = [];
+  for (int i = 0; i < 10; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      double nota = double.parse(valor);
+      listaNotas.add(nota);
+    }
+  }
+  double somaNotas = 0;
+  double maiorNota = 0;
+  for (int i = 0; i < 10; i++) {
+    somaNotas = somaNotas + listaNotas[i];
+    if (listaNotas[i] > maiorNota) {
+      maiorNota = listaNotas[i];
+    }
+  }
+  double mediaNotas = somaNotas / 10;
+  int alunosAcima = 0;
+  List<int> listaMaiorNota = [];
+  for (int i = 0; i < 10; i ++) {
+    if (listaNotas[i] > mediaNotas) {
+      alunosAcima = alunosAcima + 1;
+    }
+    if (listaNotas[i] == maiorNota) {
+      listaMaiorNota.add(i + 1);
+    }
+  }
+  print("A média das notas da turma é ${mediaNotas.toStringAsFixed(1)}"
+        "\n$alunosAcima alunos estão acima da média da turma"
+        "\nA maior nota digitada foi $maiorNota"
+        "\nA maior nota aparece nas posições: $listaMaiorNota");
+}
 
 // Exercício 42
 void preencherVetorAleatorio() {
@@ -510,8 +601,56 @@ void preencherVetorAleatorio() {
 }
 
 // Exercício 43
+void lerDoisVetores() {
+  List<String> listaNome = [];
+  List<int> listaIdade = [];
+  for (int i = 0; i < 9; i++) {
+    String? valor1 = stdin.readLineSync();
+    String? valor2 = stdin.readLineSync();
+    if ((valor1 != null) && (valor2 != null)) {
+      String nome = valor1;
+      int idade = int.parse(valor2);
+      listaNome.add(nome);
+      listaIdade.add(idade);
+    }
+  }
+  print("As pessoas menores de idade são:");
+  for (int i = 0; i < 9; i++) {
+    if (listaIdade[i] < 18) {
+      print("${listaNome[i]} tem ${listaIdade[i]} anos.");
+    }
+  }
+}
 
 // Exercício 44
+void lerTresVetores() {
+  List<String> listaNomes = [];
+  List<int> listaSexo = [];
+  List<double> listaSalario = [];
+  print("Digite o nome, o sexo e o salário de 5 funcionários, respectivamente."
+        "\nDigite uma informação em cada linha, com 1 - feminino e 2 - masculino");
+  for (int i = 0; i < 5; i++) {
+    String? valor1 = stdin.readLineSync();
+    String? valor2 = stdin.readLineSync();
+    String? valor3 = stdin.readLineSync();
+    if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
+      String nome = valor1;
+      int sexo = int.parse(valor2);
+      double salario = double.parse(valor3);
+      listaNomes.add(nome);
+      listaSexo.add(sexo);
+      listaSalario.add(salario);
+    }
+  }
+  print("As mulheres que ganham mais de 5 mil são:");
+  for (int i = 0; i < 5; i++) {
+    if (listaSexo[i] == 1) {
+      if (listaSalario[i] > 5000) {
+        print("${listaNomes[i]} ganha ${converterDecimal(listaSalario[i])}");
+      }
+    }
+  }
+}
 
 int menu() {
   print("Digite 0 para sair.");
@@ -1028,7 +1167,7 @@ void main() {
         break;
       case 37:
         {
-          
+          calcularVetorIdadeSexo();
         }
         break;
       case 38:
@@ -1044,12 +1183,14 @@ void main() {
         break;
       case 40:
         {
-          
+          print("Digite a idade de 8 pessoas: (Obs: uma idade por linha)");
+          lerVetorIdades();
         }
         break;
       case 41:
         {
-
+          print("Digite as notas de 10 alunos: (Obs: uma nota por linha)");
+          lerVetorNotas();
         }
         break;
       case 42:
@@ -1059,12 +1200,13 @@ void main() {
         break;
       case 43:
         {
-          
+          print("Digite o nome e a idade de nove pessoas: (Obs: uma informação em cada linha, primeiro o nome e depois a idade)");
+          lerDoisVetores();
         }
         break;
       case 44:
         {
-          
+          lerTresVetores();
         }
         break;
       default:
