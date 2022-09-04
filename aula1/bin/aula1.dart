@@ -369,6 +369,22 @@ void verificarVetor() {
 }
 
 // Exercício 34
+void sorteioNumerico() {
+  List lista = sortearNumeros();
+  int acimaCinco = 0;
+  int divisivelTres = 0;
+  for (int i = 0; i < 20; i++) {
+    if (lista[i] > 5) {
+      acimaCinco = acimaCinco + 1;
+    }
+    if (lista[i] % 3 == 0) {
+      divisivelTres = divisivelTres + 1;
+    }
+  }
+  print("Os números sorteados foram: $lista");
+  print("$acimaCinco números estão acima de 5");
+  print("$divisivelTres números são divisíveis por 3");
+}
 
 // Exercício 35
 void listarPreco() {
@@ -444,6 +460,14 @@ void verificarPosicaoParVetor() {
 }
 
 // Exercício 39
+List sortearNumeros() {
+  var numeros = Random();
+  List<int> lista = [];
+  for (int i = 0; i < 20; i++) {
+    lista.add(numeros.nextInt(11));
+  }
+  return lista;
+}
 
 // Exercício 40
 void lerVetorIdades() {
@@ -474,6 +498,16 @@ void lerVetorIdades() {
 // Exercício 41
 
 // Exercício 42
+void preencherVetorAleatorio() {
+  var numeros = Random();
+  List<int> lista = [];
+  for (int i = 0; i < 20; i++) {
+    lista.add(numeros.nextInt(100));
+  }
+  print("Vetor Aleatório: $lista");
+  lista.sort();
+  print("Vetor Ordenado: $lista");
+}
 
 // Exercício 43
 
@@ -977,7 +1011,7 @@ void main() {
         break;
       case 34:
         {
-          
+          sorteioNumerico();
         }
         break;
       case 35:
@@ -1005,7 +1039,7 @@ void main() {
         break;
       case 39:
         {
-          
+          print("Os números sorteados foram: ${sortearNumeros()}");
         }
         break;
       case 40:
@@ -1020,7 +1054,7 @@ void main() {
         break;
       case 42:
         {
-          
+          preencherVetorAleatorio();
         }
         break;
       case 43:
