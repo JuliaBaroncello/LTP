@@ -1,49 +1,21 @@
 import 'dart:io';
 import 'dart:math';
-import 'dart:core';
-
-/*
-Lista de Exercícios:
-Utilizando a segurança nula, resolva os exercícios utilizando como motivação a
-linguagem de programação Dart.
-*/
 
 String converterDecimal(double valor) {
   return valor.toStringAsFixed(2);
 }
 
 // Exercício 1
-/*
-O proprietário da empresa ABC LTDA precisa de um programa de computador
-para calcular o novo salário que seus funcionários irão receber a partir do mês
-que vem. Sabendo que o aumento de salário para todos os funcionários será de
-25%, faça um programa que lê o valor do salário atual do funcionário e informa o
-seu novo salário acrescido de 25%.
-*/
 double calcularSalarioEmpresaABC(double salario) {
   return salario + (salario * 25.00) / 100.00;
 }
 
 // Exercício 2
-/*
-Um dos sócios da empresa XYZ LTDA ficou sabendo que você desenvolveu um
-programa de reajuste salarial para a empresa ABC LTDA e pediu que você
-desenvolva um programa similar. Na verdade ele está pedindo que você
-acrescente ao programa anterior à possibilidade dele informar não somente o
-salário atual do funcionário, mas também o valor percentual que deve ser
-incrementado para aquele funcionário, pois ele irá aplicar valores percentuais
-diferentes a cada funcionário.
-*/
-double calcularSalarioEmpresaXYZ(double salario, num percentual) {
+double calcularAumentoSalario(double salario, num percentual) {
   return salario + (salario * percentual) / 100.00;
 }
 
 // Exercício 3
-/*
-Crie um programa que lê o ano de nascimento de uma pessoa e o ano atual.
-Calcule e mostre qual é: a idade da pessoa em anos, a idade da pessoa em
-meses, a idade da pessoa em dias e a idade da pessoa em semanas.
-*/
 void calcularIdade(int anoNascimento, int anoAtual) {
   int idade = anoAtual - anoNascimento;
   int idadeMeses = idade * 12;
@@ -56,33 +28,16 @@ void calcularIdade(int anoNascimento, int anoAtual) {
 }
 
 // Exercício 4
-/*
-Pedro comprou um saco de ração com peso em quilos. Ele possui dois gatos,
-para os quais fornece a quantidade de ração em gramas. A quantidade diária de
-ração fornecida para cada gato é sempre a mesma. Faça um programa que
-receba o peso do saco de ração e a quantidade de ração fornecida para cada
-gato, calcule e mostre quanto restará de ração no saco após cinco dias.
-*/
 double calcularRestoRacao(double pesoSacoRacao, double quantidadeRacaoGato1, double quantidadeRacaoGato2) {
   return ((pesoSacoRacao * 1000.00) - (quantidadeRacaoGato1 * 5) - (quantidadeRacaoGato2 * 5)) / 1000.00;
 }
 
 // Exercício 5
-/*
-Ler dois valores para as variáveis A e B e efetuar a troca dos valores de forma
-que a variável A passe a possuir o valor da variável B e a variável B passe a
-possuir o valor da variável A. Apresentar os valores após a efetivação do
-processamento da troca.
-*/
 num calcularVolumeCaixa(num comprimento, num largura, num altura) {
   return comprimento * largura * altura;
 }
 
 // Exercício 6
-/*
-Elaborar um programa que calcule e apresente o valor do volume de uma caixa
-retangular, utilizando a fórmula VOLUME <- COMPRIMENTO * LARGURA * ALTURA.
-*/
 void efetuarTrocaAB(num A, num B) {
   num aux = A;
   A = B;
@@ -91,40 +46,21 @@ void efetuarTrocaAB(num A, num B) {
 }
 
 // Exercício 7
-/*
-Ler dois valores numéricos inteiros (representados pelas variáveis A e B) e
-apresentar o resultado do quadrado da diferença do primeiro valor (variável A) em
-relação ao segundo valor (variável B).
-*/
 num calcularQuadradoDiferenca(int A, int B) {
   return pow((A - B), 2);
 }
 
 // Exercício 8
-/*
-Elaborar um programa que apresente o valor da conversão em real (R$) de um
-valor lido em dólar (US$). O programa deve solicitar o valor da cotação do dólar.
-*/
 double calcularConvercaoDolarReal(double dolares, double cotacao) {
   return dolares * cotacao;
 }
 
 // Exercício 9
-/*
-Construir um programa que leia três valores numéricos inteiros (representados
-pelas variáveis A, B e C) e apresente como resultado final o valor do quadrado da
-soma dos três valores lidos.
-*/
 num calcularQuadradoSoma(int A, int B, int C) {
   return pow((A + B + C), 2);
 }
 
 // Exercício 10
-/*
-Elaborar um programa que leia dois valores numéricos reais desconhecidos
-representados pelas variáveis A e B. Calcular e apresentar os resultados das
-quatro operações aritméticas básicas (soma, subtração, divisão e multiplicação).
-*/
 void calcularOperacoesBasicas(num A, num B) {
   num soma = A + B;
   num subtracao = A - B;
@@ -137,19 +73,11 @@ void calcularOperacoesBasicas(num A, num B) {
 }
 
 // Exercício 11
-/*
-Elaborar um programa de computador que calcule e apresente o valor do volume
-de uma esfera. Utilize a fórmula VOLUME <- (4 / 3) * 3.14159 * (RAIO3).
-*/
 num calcularVolumeEsfera(double raio, double pi) {
   return (4.00 / 3.00) * pi * pow(raio, 3);
 }
 
 // Exercício 12
-/*
-Construir um programa que leia um valor numérico inteiro e apresente como
-resultado os seus valores: sucessor e antecessor.
-*/
 void calcularSucessorAntecessor(int numero) {
   int sucessor = numero + 1;
   int antecessor = numero - 1;
@@ -158,11 +86,6 @@ void calcularSucessorAntecessor(int numero) {
 }
 
 // Exercício 13
-/*
-Escreva um programa que pergunte a velocidade de um carro. Caso ultrapasse
-80Km/h, exiba uma mensagem dizendo que o usuário foi multado. Nesse caso,
-exiba o valor da multa, cobrando R$5 por cada Km acima da velocidade permitida.
-*/
 void calcularMulta(int velocidade) {
   int velocidadeMaxima = 80;
   if (velocidade > 80) {
@@ -174,10 +97,6 @@ void calcularMulta(int velocidade) {
 }
 
 // Exercício 14
-/*
-Faça um programa que leia o ano de nascimento de uma pessoa, calcule a idade
-dela e depois mostre se ela pode ou não votar.
-*/
 void calcularIdadeVoto(int anoNascimento) {
   int idade = 2022 - anoNascimento;
   if (idade > 18) {
@@ -188,11 +107,6 @@ void calcularIdadeVoto(int anoNascimento) {
 }
 
 // Exercício 15
-/*
-Crie um algoritmo que leia o nome e as duas notas de um aluno, calcule a sua
-média e mostre na tela. No final, analise a média e mostre se o aluno teve ou não
-um bom aproveitamento (se ficou acima da média 7.0).
-*/
 void calcularMedia(String nome, double nota1, double nota2) {
   double media = (nota1 + nota2) / 2.00;
   print("A média desse aluno é: $media");
@@ -204,10 +118,6 @@ void calcularMedia(String nome, double nota1, double nota2) {
 }
 
 // Exercício 16
-/*
-Desenvolva um programa que leia um número inteiro e mostre se ele é PAR ou
-ÍMPAR.
-*/
 void verificarParImpar(int numero) {
   if (numero % 2 == 0) {
     print("Esse número é par.");
@@ -217,12 +127,6 @@ void verificarParImpar(int numero) {
 }
 
 // Exercício 17
-/*
-Escreva um programa que leia o ano de nascimento de um rapaz e mostre a sua
-situação em relação ao alistamento militar. - Se estiver antes dos 18 anos, mostre
-em quantos anos faltam para o alistamento. - Se já tiver depois dos 18 anos,
-mostre quantos anos já se passaram do alistamento.
-*/
 void verificarAlistamentoMilitar(int anoNascimento) {
   int idade = 2022 - anoNascimento;
   int idadeAlistamento = 18;
@@ -236,15 +140,9 @@ void verificarAlistamentoMilitar(int anoNascimento) {
 }
 
 // Exercício 18
-/*
-Numa promoção exclusiva para o Dia da Mulher, uma loja quer dar descontos
-para todos, mas especialmente para mulheres. Faça um programa que leia nome,
-sexo e o valor das compras do cliente e calcule o preço com desconto. Sabendo
-que: - Homens ganham 5% de desconto - Mulheres ganham 13% de desconto
-*/
-void calcularDesconto(String nome, String sexo, double valorCompras) {
+void calcularDesconto(String nome, int sexo, double valorCompras) {
   double desconto = 0.00;
-  if (sexo == "feminino") {
+  if (sexo == 1) {
     desconto = valorCompras - (valorCompras * 13.00) / 100.00;
     print("O preço das compras com desconto para a cliente $nome é de: ${converterDecimal(desconto)} reais.");
   } else {
@@ -254,11 +152,6 @@ void calcularDesconto(String nome, String sexo, double valorCompras) {
 }
 
 // Exercício 19
-/*
-Faça uma aplicação que pergunte a distância que um passageiro deseja
-percorrer em Km. Calcule o preço da passagem, cobrando R$0.50 por Km para
-viagens até 200Km e R$0.45 para viagens mais longas.
-*/
 double calcularPrecoPassagem(int distancia) {
   double precoPassagem = 0.00;
   if (distancia < 200) {
@@ -270,21 +163,8 @@ double calcularPrecoPassagem(int distancia) {
 }
 
 // Exercício 20
-/*
-Escreva um aplicativo que leia na tela uma das mensagens abaixo: segmentos
-formarem um triângulo, o comprimento soma dos outros dois. dois números
-inteiros e compare-os, mostrando - O primeiro valor é o maior - O segundo valor é
-o maior - Não existe valor maior, os dois são iguais
-*/
-
 
 // Exercício 21
-/*
-Crie um programa que leia duas notas de um aluno e calcule a sua média,
-mostrando uma mensagem no final, de acordo com a média atingida: - Média até
-4.9: REPROVADO - Média entre 5.0 e 6.9: RECUPERAÇÃO - Média 7.0 ou
-superior: APROVADO
-*/
 void calcularMediaAluno(double nota1, double nota2) {
   double media = (nota1 + nota2) / 2.00;
   if ((media >= 0.0) && (media <= 4.9)) {
@@ -299,13 +179,6 @@ void calcularMediaAluno(double nota1, double nota2) {
 }
 
 // Exercício 22
-/*
-Faça um programa que leia a largura e o comprimento de um terreno retangular,
-calculando e mostrando a sua área em m2. O programa também devemostrar a
-classificação desse terreno, de acordo com a lista abaixo: - Abaixo de 100m² =
-TERRENO POPULAR - Entre 100m² e 500m² = TERRENO MASTER - Acima de
-500m² = TERRENO VIP
-*/
 void calcularArea(int largura, int comprimento) {
   int area = largura * comprimento;
   print("A área desse terreno é $area m².");
@@ -321,37 +194,24 @@ void calcularArea(int largura, int comprimento) {
 }
 
 // Exercício 23
-/*
-Desenvolva um programa que leia o nome de um funcionário, seu salário,
-quantos anos ele trabalha na empresa e mostre seu novo salário, reajustado de
-acordo com a tabela a seguir: - Até 3 anos de empresa: aumento de 3% - entre 3
-e 10 anos: aumento de 12.5- 10 anos ou mais: aumento de 20%
-*/
 double calcularNovoSalario(double salario, int anos) {
   double novoSalario = 0.00;
   if ((anos >= 0) && (anos < 3)) {
-    novoSalario = salario + (salario * 3.00) / 100.00;
+    num percentual = 3.00;
+    novoSalario = calcularAumentoSalario(salario, percentual);
   } else if ((anos >= 3) && (anos < 10)) {
-    novoSalario = salario + (salario * 12.50) / 100.00;
+    num percentual = 12.50;
+    novoSalario = calcularAumentoSalario(salario, percentual);
   } else if (salario >= 10) {
-    novoSalario = salario + (salario * 20.00) / 100.00;
+    num percentual = 20.00;
+    novoSalario = calcularAumentoSalario(salario, percentual);
   }
   return novoSalario;
 }
 
 // Exercício 24
-/*
-Crie um jogo de JoKenPo (Pedra-Papel-Tesoura)
-*/
-
 
 // Exercício 25
-/*
-Escreva um programa para aprovar ou não o empréstimo bancário para a compra
-de uma casa. O programa vai perguntar o valor da casa, o salário do comprador e
-em quantos anos ele vai pagar. Calcule o valor da prestação mensal, sabendo
-que ela não pode exceder 30% do salário ou então o empréstimo será negado.
-*/
 void calcularEmprestimo(double precoCasa, double salario, int anos) {
   double parcela = precoCasa / anos / 12;
   double porcentagemSalario = (parcela * 100) / 1000.00;
@@ -363,18 +223,6 @@ void calcularEmprestimo(double precoCasa, double salario, int anos) {
 }
 
 // Exercício 26
-/*
-O Índice de Massa Corpórea (IMC) é um valor calculado baseado na altura e no
-peso de uma pessoa. De acordo com o valor do IMC, podemos classificar o
-indivíduo dentro de certas faixas.
-abaixo de 18.5: Abaixo do peso
-entre 18.5 e 25: Peso ideal
-entre 25 e 30: Sobrepeso
-entre 30 e 40: Obesidade
-acima de 40: Obesidade mórbida
-Obs: O IMC é calculado pela expressão peso/altura2 (peso dividido pelo quadrado da
-altura)
-*/
 void calcularIMC(double altura, double peso) {
   double imc = peso / pow(altura, 2);
   if (imc < 18.5) {
@@ -391,20 +239,6 @@ void calcularIMC(double altura, double peso) {
 }
 
 // Exercício 27
-/*
-Uma empresa de aluguel de carros precisa cobrar pelos seus serviços. O aluguel
-de um carro custa R$90 por dia para carro popular e R$150 por dia para carro de
-luxo. Além disso, o cliente paga por Km percorrido. Faça um programa que leia o
-tipo de carro alugado (popular ou luxo), quantos dias de aluguel e quantos Km
-foram percorridos. No final mostre o preço a ser pago de acordo com a tabela a
-seguir:
-Carros populares (aluguel de R$90 por dia)
-Até 100Km percorridos: R$0,20 por Km
-Acima de 100Km percorridos: R$0,10 por Km
-Carros de luxo (aluguel de R$150 por dia)
-Até 200Km percorridos: R$0,30 por Km
-Acima de 200Km percorridos: R$0,25 por Km
-*/
 double calcularAluguelCarro(int tipoCarro, int diasAluguel, int quilometros) {
   double precoAluguel = 0.00;
   switch (tipoCarro) {
@@ -429,17 +263,6 @@ double calcularAluguelCarro(int tipoCarro, int diasAluguel, int quilometros) {
 }
 
 // Exercício 28
-/*
-Um programa de vida saudável quer dar pontos atividades físicas que podem ser
-trocados por dinheiro. O sistema funciona assim:
-Cada hora de atividade física no mês vale pontos
-até 10h de atividade no mês: ganha 2 pontos por hora
-de 10h até 20h de atividade no mês: ganha 5 pontos por hora
-acima de 20h de atividade no mês: ganha 10 pontos por hora
-A cada ponto ganho, o cliente fatura R$0,05 (5 centavos)
-Faça um programa que leia quantas horas de atividade uma pessoa teve por mês,
-calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.
-*/
 void calcularPontos(int horasAtividades) {
   int pontos = 0;
   if (horasAtividades < 10) {
@@ -454,20 +277,6 @@ void calcularPontos(int horasAtividades) {
 }
 
 // Exercício 29
-/*
-Uma empresa precisa reajustar o salário dos seus funcionários, dando um
-aumento de acordo com alguns fatores. Faça um programa que leia o salário
-atual, o gênero do funcionário e há quantos anos esse funcionário trabalha na
-empresa. No final, mostre o seu novo salário, baseado na tabela a seguir:
-Mulheres
-  menos de 15 anos de empresa: +5%
-  de 15 até 20 anos de empresa: +12%
-  mais de 20 anos de empresa: +23%
-Homens
-  menos de 20 anos de empresa: +3%
-  de 20 até 30 anos de empresa: +13%
-  mais de 30 anos de empresa: +25%
-*/
 double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
   double salarioRejustado = 0.00;
   num percentual = 0;
@@ -475,25 +284,25 @@ double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
     case 1:
       if (anosTrabalho < 15) {
         percentual = 5;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       } else if ((anosTrabalho >= 15) && (anosTrabalho <= 20)) {
         percentual = 12;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       } else {
         percentual = 23;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       }
       break;
     case 2:
       if (anosTrabalho < 20) {
         percentual = 3;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       } else if ((anosTrabalho >= 20) && (anosTrabalho <= 30)) {
         percentual = 13;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       } else {
         percentual = 25;
-        salarioRejustado = calcularSalarioEmpresaXYZ(salario, percentual);
+        salarioRejustado = calcularAumentoSalario(salario, percentual);
       }
       break;
     default:
@@ -503,11 +312,6 @@ double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
 }
 
 // Exercício 30
-/*
-Desenvolva um algoritmo que mostre uma contagem regressiva de 30 até 1,
-marcando os números que forem divisíveis por 4, exatamente como mostrado
-abaixo: 30 29 [28] 27 26 25 [24] 23 22 21 [20] 19 18 17 [16]...
-*/
 void realizarContagemRegressiva() {
   for (int i = 30; i >= 1; i--) {
     if (i % 4 == 0) {
@@ -519,10 +323,6 @@ void realizarContagemRegressiva() {
 }
 
 // Exercício 31
-/*
-Crie um programa que calcule e mostre na tela o resultado da soma entre 6 + 8 +
-10 + 12 + 14 + ... + 98 + 100.
-*/
 int calcularSoma() {
   int soma = 0;
   for (int i = 6; i <= 100; i += 2) {
@@ -532,10 +332,6 @@ int calcularSoma() {
 }
 
 // Exercício 32
-/*
-Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450
-+ 400 +350 + 300 + ... + 50 + 0
-*/
 int calcularExpressao() {
   int soma = 0;
   for (int i = 500; i >= 0; i -= 50) {
@@ -545,123 +341,143 @@ int calcularExpressao() {
 }
 
 // Exercício 33
-/*
-Desenvolva uma aplicação que leia 6 números em um vetor, e no final mostre
-quantos deles são impares e quantos são pares. Imprima também os valores.
-*/
-List lerVetor(int posicoes) {
+void verificarVetor() {
   List<int> lista = [];
-  for (int i = 0; i < posicoes; i++) {
+  for (int i = 0; i < 6; i++) {
     String? valor = stdin.readLineSync();
     if (valor != null) {
       int numero = int.parse(valor);
       lista.add(numero);
     }
   }
-  return lista;
-}
-
-void verificarImparParVetor(List lista, int posicoes) {
+  List<int> listaImpar = [];
+  List<int> listaPar = [];
   int impar = 0;
   int par = 0;
-  for (int i = 0; i < posicoes; i++) {
+  for (int i = 0; i < 6; i++) {
     if (lista[i] % 2 != 0) {
       impar = impar + 1;
+      listaImpar.add(lista[i]);
     } else {
       par = par + 1;
+      listaPar.add(lista[i]);
     }
   }
   print("Esse vetor possui $impar números ímpares e $par números pares.");
+  print("Vetor: $lista.");
+  print("Os números ímpares são $listaImpar e os números pares são $listaPar.");
 }
 
 // Exercício 34
-/*
-Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
-na tela:
-Quais foram os números sorteados
-Quantos números estão acima de 5
-Quantos números são divisíveis por 3
-*/
 
 // Exercício 35
-/*
-Desenvolva uma aplicação que leia o preço de 8 produtos, e armazenem em uma
-lista. No final, mostre na tela qual foi o maior e qual foi o menor preço informado.
-*/
+void listarPreco() {
+  List<double> lista = [];
+  for (int i = 0; i < 8; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      double precoProduto = double.parse(valor);
+      lista.add(precoProduto);
+    }
+  }
+  double menorPreco = 1000000;
+  double maiorPreco = 0.0;
+  for (int i = 0; i < 8; i++) {
+    if (menorPreco > lista[i]) {
+      menorPreco = lista[i];
+    } else if (maiorPreco < lista[i]) {
+      maiorPreco = lista[i];
+    }
+  }
+  print("O maior preço é ${converterDecimal(maiorPreco)} reais e o menor preço é ${converterDecimal(menorPreco)} reais.");
+}
 
 // Exercício 36
-/*
-Crie um algoritmo que leia a idade de 10 pessoas, mostrando no final:
-Qual é a média de idade do grupo
-Quantas pessoas tem mais de 18 anos
-Quantas pessoas tem menos de 5 anos
-Qual foi a maior idade lida
-*/
+void verificarVetorIdade() {
+  List<int> lista = [];
+  for (int i = 0; i < 10; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      int idade = int.parse(valor);
+      lista.add(idade);
+    }
+  }
+  int somaIdade = 0;
+  int idadeMaior = 0;
+  int idadeMenor = 0;
+  int maiorIdade = 0;
+  for (int i = 0; i < 10; i++) {
+    somaIdade = somaIdade + lista[i];
+    if (lista[i] > 18) {
+      idadeMaior = idadeMaior + 1;
+    } else if (lista[i] < 5) {
+      idadeMenor = idadeMenor + 1;
+    }
+    if (maiorIdade < lista[i]) {
+      maiorIdade = lista[i];
+    }
+  }
+  num mediaIdade = (somaIdade / 10).round();
+  print("A média de idade do grupo é $mediaIdade anos.");
+  print("A quantidade de pessoas com mais de 18 anos é $idadeMaior");
+  print("A quantidade de pessoas com menos de 5 anos é $idadeMenor");
+  print("A maior idade do grupo é $maiorIdade");
+}
 
 // Exercício 37
-/*
-Faça uma aplicação que leia a idade e o sexo de 5 pessoas, mostre no final:
-Quantos homens foram cadastrados
-Quantas mulheres foram cadastradas
-A média de idade do grupo
-A média de idade dos homens
-Quantas mulheres tem mais de 20 anos
-*/
 
 // Exercício 38
-/*
-Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor.
-No final, mostre quais são os números pares que foram digitados e em que
-posições eles estão armazenados.
-*/
+void verificarPosicaoParVetor() {
+  List<int> lista = [];
+  for (int i = 0; i < 10; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      int numero = int.parse(valor);
+      lista.add(numero);
+    }
+  }
+  for (int i = 0; i < 10; i++) {
+    if (lista[i] % 2 == 0) {
+      print("Número ${lista[i]} na posição $i");
+    }
+  }
+}
 
 // Exercício 39
-/*
-Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
-na tela:
-*/
 
 // Exercício 40
-/*
-Crie um programa que leia a idade de 8 pessoas e guarde-as em um vetor. No
-final, mostre:
-Qual é a média de idade das pessoas cadastradas
-Em quais posições temos pessoas com mais de 25 anos
-Qual foi a maior idade digitada (podem haver repetições)
-Em que posições digitamos a maior idade
-*/
+void lerVetorIdades() {
+  List<int> lista = [];
+  for (int i = 0; i < 8; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      int idade = int.parse(valor);
+      lista.add(idade);
+    }
+  }
+  int somaIdade = 0;
+  int maiorIdade = 0;
+  for (int i = 0; i < 10; i++) {
+    somaIdade = somaIdade + lista[i];
+    if (maiorIdade < lista[i]) {
+      maiorIdade = lista[i];
+    }
+  }
+  num mediaIdade = (somaIdade / 10).round();
+  print("A média de idade das pessoas cadastradas é $mediaIdade anos.");
+
+  print("A maior idade do grupo é $maiorIdade");
+  
+}
+
 
 // Exercício 41
-/*
-Faça um algoritmo que leia a nota de 10 alunos de uma turma e guarde-as em
-um vetor. No final, mostre:
-Qual é a média da turma
-Quantos alunos estão acima da média da turma
-Qual foi a maior nota digitada
-Em que posições a maior nota aparece
-*/
 
 // Exercício 42
-/*
-Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
-(entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números
-gerados e depois coloque o vetor em ordem crescente, mostrando no final os
-valores ordenados.
-*/
 
 // Exercício 43
-/*
-Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses
-valores em dois vetores, em posições relacionadas. No final, mostre uma
-listagem contendo apenas os dados das pessoas menores de idade.
-*/
 
 // Exercício 44
-/*
-Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários e guarde
-esses dados em três vetores. No final, mostre uma listagem contendo apenas os
-dados das funcionárias mulheres que ganham mais de R$5 mil.
-*/
 
 int menu() {
   print("Digite 0 para sair.");
@@ -742,7 +558,7 @@ void main() {
           if ((valor1 != null) && (valor2 != null)) {
             double salario = double.parse(valor1);
             num percentual = num.parse(valor2);
-            print("O salário de ${converterDecimal(salario)} reais será reajustado para ${converterDecimal(calcularSalarioEmpresaXYZ(salario, percentual))} reais.");
+            print("O salário de ${converterDecimal(salario)} reais será reajustado para ${converterDecimal(calcularAumentoSalario(salario, percentual))} reais.");
           } else {
             print("Nenhuma das informações pode ser nula.");
           }
@@ -973,13 +789,13 @@ void main() {
         {
           print("Informe o nome do cliente:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o sexo do cliente (feminino ou masculino):");
+          print("Informe o sexo do cliente (1 - feminino, 2 - masculino):");
           String? valor2 = stdin.readLineSync();
           print("Informe o valor das compras do cliente:");
           String? valor3 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
             String nome = valor1;
-            String sexo = valor2;
+            int sexo = int.parse(valor2);
             double valorCompras = double.parse(valor3);
             calcularDesconto(nome, sexo, valorCompras);
           } else {
@@ -1000,10 +816,6 @@ void main() {
         }
         break;
       case 20:
-       /* Escreva um aplicativo que leia na tela uma das mensagens abaixo: segmentos
-formarem um triângulo, o comprimento soma dos outros dois. dois números
-inteiros e compare-os, mostrando - O primeiro valor é o maior - O segundo valor é
-o maior - Não existe valor maior, os dois são iguais */
         {
           
         }
@@ -1057,7 +869,6 @@ o maior - Não existe valor maior, os dois são iguais */
         }
         break;
       case 24:
-       /* Crie um jogo de JoKenPo (Pedra-Papel-Tesoura) */
         {
           
         }
@@ -1160,130 +971,64 @@ o maior - Não existe valor maior, os dois são iguais */
         break;
       case 33:
         {
-          int posicoes = 6;
-          List lista = lerVetor(posicoes);
-          verificarImparParVetor(lista, posicoes);
-          print("$lista");
+          print("Digite um vetor de 6 posições: (Obs: um número por linha)");
+          verificarVetor();
         }
         break;
       case 34:
-/*
-Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
-na tela:
-Quais foram os números sorteados
-Quantos números estão acima de 5
-Quantos números são divisíveis por 3
-*/
         {
           
         }
         break;
       case 35:
-/*
-Desenvolva uma aplicação que leia o preço de 8 produtos, e armazenem em uma
-lista. No final, mostre na tela qual foi o maior e qual foi o menor preço informado.
-*/
         {
-          int posicoes = 8;
+          print("Digite os preços de oito produtos: (Obs: um preço por linha)");
+          listarPreco();
         }
         break;
       case 36:
-/*
-Crie um algoritmo que leia a idade de 10 pessoas, mostrando no final:
-Qual é a média de idade do grupo
-Quantas pessoas tem mais de 18 anos
-Quantas pessoas tem menos de 5 anos
-Qual foi a maior idade lida
-*/
         {
-
+          print("Digite a idade de 10 pessoas: (Obs: uma idade por linha)");
+          verificarVetorIdade();
         }
         break;
       case 37:
-/*
-Faça uma aplicação que leia a idade e o sexo de 5 pessoas, mostre no final:
-Quantos homens foram cadastrados
-Quantas mulheres foram cadastradas
-A média de idade do grupo
-A média de idade dos homens
-Quantas mulheres tem mais de 20 anos
-*/
         {
           
         }
         break;
       case 38:
-/*
-Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor.
-No final, mostre quais são os números pares que foram digitados e em que
-posições eles estão armazenados.
-*/
         {
-          
+          print("Digite 10 números para um vetor: (Obs: um número por linha)");
+          verificarPosicaoParVetor();
         }
         break;
       case 39:
-/*
-Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
-na tela:
-*/
         {
           
         }
         break;
       case 40:
-/*
-Crie um programa que leia a idade de 8 pessoas e guarde-as em um vetor. No
-final, mostre:
-Qual é a média de idade das pessoas cadastradas
-Em quais posições temos pessoas com mais de 25 anos
-Qual foi a maior idade digitada (podem haver repetições)
-Em que posições digitamos a maior idade
-*/
         {
           
         }
         break;
       case 41:
-/*
-Faça um algoritmo que leia a nota de 10 alunos de uma turma e guarde-as em
-um vetor. No final, mostre:
-Qual é a média da turma
-Quantos alunos estão acima da média da turma
-Qual foi a maior nota digitada
-Em que posições a maior nota aparece
-*/
         {
 
         }
         break;
       case 42:
-/*
-Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
-(entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números
-gerados e depois coloque o vetor em ordem crescente, mostrando no final os
-valores ordenados.
-*/
         {
           
         }
         break;
       case 43:
-/*
-Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses
-valores em dois vetores, em posições relacionadas. No final, mostre uma
-listagem contendo apenas os dados das pessoas menores de idade.
-*/
         {
           
         }
         break;
       case 44:
-/*
-Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários e guarde
-esses dados em três vetores. No final, mostre uma listagem contendo apenas os
-dados das funcionárias mulheres que ganham mais de R$5 mil.
-*/
         {
           
         }
