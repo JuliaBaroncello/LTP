@@ -356,9 +356,36 @@ int calcularExpressao() {
   return soma;
 }
 
+void verificarVetor() {
+  List<int> listaNumeros = [];
+  for (int i = 0; i < 6; i++) {
+    String? valor = stdin.readLineSync();
+    if (valor != null) {
+      int numero = int.parse(valor);
+      listaNumeros.add(numero);
+    } else {
+      valorNulo();
+    }
+  }
+  List<int> listaImpar = [];
+  List<int> listaPar = [];
+  int somaImpar = 0;
+  int somaPar = 0;
+  for (int i = 0; i < 6; i++) {
+    if (listaNumeros[i] % 2 == 0) {
+      somaPar = somaPar + 1;
+      listaPar.add(listaNumeros[i]);
+    } else {
+      somaImpar = somaImpar + 1;
+      listaImpar.add(listaNumeros[i]);
+    }
+  }
+  print("Esse vetor possui $somaImpar números ímpares e $somaPar números pares."
+        "\nVetor: $listaNumeros."
+        "\nOs números ímpares são $listaImpar e os números pares são $listaPar.");
+}
+
 /*
-33 Desenvolva uma aplicação que leia 6 números em um vetor, e no final mostre
-quantos deles são impares e quantos são pares. Imprima também os valores.
 34 Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
 na tela:
 Quais foram os números sorteados
@@ -415,34 +442,6 @@ Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários e gua
 esses dados em três vetores. No final, mostre uma listagem contendo apenas os
 dados das funcionárias mulheres que ganham mais de R$5 mil.
 */
-
-// Exercício 33
-void verificarVetor() {
-  List<int> lista = [];
-  for (int i = 0; i < 6; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      int numero = int.parse(valor);
-      lista.add(numero);
-    }
-  }
-  List<int> listaImpar = [];
-  List<int> listaPar = [];
-  int impar = 0;
-  int par = 0;
-  for (int i = 0; i < 6; i++) {
-    if (lista[i] % 2 != 0) {
-      impar = impar + 1;
-      listaImpar.add(lista[i]);
-    } else {
-      par = par + 1;
-      listaPar.add(lista[i]);
-    }
-  }
-  print("Esse vetor possui $impar números ímpares e $par números pares."
-        "\nVetor: $lista."
-        "\nOs números ímpares são $listaImpar e os números pares são $listaPar.");
-}
 
 // Exercício 34
 void sorteioNumerico() {
@@ -1238,7 +1237,8 @@ void main() {
         break;
       case 33:
         {
-          print("Digite um vetor de 6 posições: (Obs: um número por linha)");
+          print("Digite um vetor de 6 posições:"
+                "\nUm número por linha.");
           verificarVetor();
         }
         break;
