@@ -1,76 +1,223 @@
 import 'dart:io';
 import 'dart:math';
 
-String converterDecimal(double valor) {
-  return valor.toStringAsFixed(2);
-}
-
-// Exercício 1
-double calcularSalarioEmpresaABC(double salario) {
-  return salario + (salario * 25.00) / 100.00;
-}
-
-// Exercício 2
-double calcularAumentoSalario(double salario, num percentual) {
+double calcularSalario(double salario, num percentual) {
   return salario + (salario * percentual) / 100.00;
 }
 
-// Exercício 3
-void calcularIdade(int anoNascimento, int anoAtual) {
-  int idade = anoAtual - anoNascimento;
-  int idadeMeses = idade * 12;
-  int idadeSemanas = idade * 52;
-  int idadeDias = idade * 365;
-  print("A idade dessa pessoa em anos é: $idade anos."
-        "\nA idade dessa pessoa em meses é: $idadeMeses meses."
-        "\nA idade dessa pessoa em dias é: $idadeDias dias."
-        "\nA idade dessa pessoa em semanas é: $idadeSemanas semanas.");
+void calcularIdade(int anoDeNascimento, int anoAtual) {
+  int idade = anoAtual - anoDeNascimento;
+  int idadeEmMeses = idade * 12;
+  int idadeEmDias = idade * 365;
+  int idadeEmSemanas = idade * 52;
+  print("A sua idade em anos é $idade anos."
+        "\nA sua idade em meses é $idadeEmMeses meses."
+        "\nA sua idade em dias é $idadeEmDias dias."
+        "\nA sua idade em semanas é $idadeEmSemanas semanas.");
 }
 
-// Exercício 4
-double calcularRestoRacao(double pesoSacoRacao, double quantidadeRacaoGato1, double quantidadeRacaoGato2) {
-  return ((pesoSacoRacao * 1000.00) - (quantidadeRacaoGato1 * 5) - (quantidadeRacaoGato2 * 5)) / 1000.00;
+void calcularRestoRacao(double pesoSacoRacao, double quantidadeRacaoGato1, double quantidadeRacaoGato2) {
+  double restoRacao = ((pesoSacoRacao * 1000.00) - (quantidadeRacaoGato1 * 5) - (quantidadeRacaoGato2 * 5)) / 1000.00;
+  if (restoRacao >= 0) {
+    print("A quantidade restante de ração após cinco dias é $restoRacao kg.");
+  } else {
+    print("Você vai precisar comprar um novo saco de ração antes de cinco dias.");
+  }
 }
 
-// Exercício 5
-num calcularVolumeCaixa(num comprimento, num largura, num altura) {
-  return comprimento * largura * altura;
-}
-
-// Exercício 6
-void efetuarTrocaAB(num A, num B) {
-  num aux = A;
+void trocarValoresAB(var A, var B) {
+  var aux = A;
   A = B;
   B = aux;
-  print("Valor das variáveis após a troca é: A = $A e B = $B");
+  print("O valor das variáveis após a troca é:"
+        "\nA = $A"
+        "\nB = $B");
 }
 
-// Exercício 7
+int calcularVolumeCaixa(int comprimento, int largura, int altura) {
+  int volume = comprimento * largura * altura;
+  return volume;
+}
+
 num calcularQuadradoDiferenca(int A, int B) {
   return pow((A - B), 2);
 }
 
-// Exercício 8
-double calcularConvercaoDolarReal(double dolares, double cotacao) {
+double calcularConversaoDolar(double dolares, double cotacao) {
   return dolares * cotacao;
 }
 
-// Exercício 9
 num calcularQuadradoSoma(int A, int B, int C) {
   return pow((A + B + C), 2);
 }
 
-// Exercício 10
 void calcularOperacoesBasicas(num A, num B) {
   num soma = A + B;
   num subtracao = A - B;
   num divisao = A / B;
   num multiplicacao = A * B;
-  print("O resultado da soma entre A e B é: $soma"
-        "\nO resultado da subtracao entre A e B é: $subtracao"
-        "\nO resultado da divisao de A por B é: $divisao"
-        "\nO resultado da multiplicacao de A por B é: $multiplicacao");
+  print("O resultado de A + B é $soma"
+        "\nO resultado de A - B é $subtracao"
+        "\nO resultado de A / B é $divisao"
+        "\nO resultado de A * B é $multiplicacao");
 }
+
+/*
+11 Elaborar um programa de computador que calcule e apresente o valor do volume
+de uma esfera. Utilize a fórmula VOLUME <- (4 / 3) * 3.14159 * (RAIO3).
+12 Construir um programa que leia um valor numérico inteiro e apresente como
+resultado os seus valores: sucessor e antecessor.
+13 Escreva um programa que pergunte a velocidade de um carro. Caso ultrapasse
+80Km/h, exiba uma mensagem dizendo que o usuário foi multado. Nesse caso,
+exiba o valor da multa, cobrando R$5 por cada Km acima da velocidade permitida.
+14 Faça um programa que leia o ano de nascimento de uma pessoa, calcule a idade
+dela e depois mostre se ela pode ou não votar.
+15 Crie um algoritmo que leia o nome e as duas notas de um aluno, calcule a sua
+média e mostre na tela. No final, analise a média e mostre se o aluno teve ou não
+um bom aproveitamento (se ficou acima da média 7.0).
+16 Desenvolva um programa que leia um número inteiro e mostre se ele é PAR ou
+ÍMPAR.
+17 Escreva um programa que leia o ano de nascimento de um rapaz e mostre a sua
+situação em relação ao alistamento militar. - Se estiver antes dos 18 anos, mostre
+em quantos anos faltam para o alistamento. - Se já tiver depois dos 18 anos,
+mostre quantos anos já se passaram do alistamento.
+18 Numa promoção exclusiva para o Dia da Mulher, uma loja quer dar descontos
+para todos, mas especialmente para mulheres. Faça um programa que leia nome,
+sexo e o valor das compras do cliente e calcule o preço com desconto. Sabendo
+que: - Homens ganham 5% de desconto - Mulheres ganham 13% de desconto
+19 Faça uma aplicação que pergunte a distância que um passageiro deseja
+percorrer em Km. Calcule o preço da passagem, cobrando R$0.50 por Km para
+viagens até 200Km e R$0.45 para viagens mais longas.
+20 Escreva um aplicativo que leia na tela uma das mensagens abaixo: segmentos
+formarem um triângulo, o comprimento soma dos outros dois. dois números
+inteiros e compare-os, mostrando - O primeiro valor é o maior - O segundo valor é
+o maior - Não existe valor maior, os dois são iguais
+21 Crie um programa que leia duas notas de um aluno e calcule a sua média,
+mostrando uma mensagem no final, de acordo com a média atingida: - Média até
+4.9: REPROVADO - Média entre 5.0 e 6.9: RECUPERAÇÃO - Média 7.0 ou
+superior: APROVADO
+22 Faça um programa que leia a largura e o comprimento de um terreno retangular,
+calculando e mostrando a sua área em m2. O programa também devemostrar a
+classificação desse terreno, de acordo com a lista abaixo: - Abaixo de 100m² =
+TERRENO POPULAR - Entre 100m² e 500m² = TERRENO MASTER - Acima de
+500m² = TERRENO VIP
+23 Desenvolva um programa que leia o nome de um funcionário, seu salário,
+quantos anos ele trabalha na empresa e mostre seu novo salário, reajustado de
+acordo com a tabela a seguir: - Até 3 anos de empresa: aumento de 3% - entre 3
+e 10 anos: aumento de 12.5- 10 anos ou mais: aumento de 20%
+
+25 Escreva um programa para aprovar ou não o empréstimo bancário para a compra
+de uma casa. O programa vai perguntar o valor da casa, o salário do comprador e
+em quantos anos ele vai pagar. Calcule o valor da prestação mensal, sabendo
+que ela não pode exceder 30% do salário ou então o empréstimo será negado.
+26 O Índice de Massa Corpórea (IMC) é um valor calculado baseado na altura e no
+peso de uma pessoa. De acordo com o valor do IMC, podemos classificar o
+indivíduo dentro de certas faixas.
+abaixo de 18.5: Abaixo do peso
+entre 18.5 e 25: Peso ideal
+entre 25 e 30: Sobrepeso
+entre 30 e 40: Obesidade
+acima de 40: Obesidade mórbida
+Obs: O IMC é calculado pela expressão peso/altura2 (peso dividido pelo quadrado da
+altura)
+27 Uma empresa de aluguel de carros precisa cobrar pelos seus serviços. O aluguel
+de um carro custa R$90 por dia para carro popular e R$150 por dia para carro de
+luxo. Além disso, o cliente paga por Km percorrido. Faça um programa que leia o
+tipo de carro alugado (popular ou luxo), quantos dias de aluguel e quantos Km
+foram percorridos. No final mostre o preço a ser pago de acordo com a tabela a
+seguir:
+Carros populares (aluguel de R$90 por dia)
+Até 100Km percorridos: R$0,20 por Km
+Acima de 100Km percorridos: R$0,10 por Km
+Carros de luxo (aluguel de R$150 por dia)
+Até 200Km percorridos: R$0,30 por Km
+Acima de 200Km percorridos: R$0,25 por Km
+28 Um programa de vida saudável quer dar pontos atividades físicas que podem ser
+trocados por dinheiro. O sistema funciona assim:
+Cada hora de atividade física no mês vale pontos
+até 10h de atividade no mês: ganha 2 pontos por hora
+de 10h até 20h de atividade no mês: ganha 5 pontos por hora
+acima de 20h de atividade no mês: ganha 10 pontos por hora
+A cada ponto ganho, o cliente fatura R$0,05 (5 centavos)
+Faça um programa que leia quantas horas de atividade uma pessoa teve por mês,
+calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.
+29 Uma empresa precisa reajustar o salário dos seus funcionários, dando um
+aumento de acordo com alguns fatores. Faça um programa que leia o salário
+atual, o gênero do funcionário e há quantos anos esse funcionário trabalha na
+empresa. No final, mostre o seu novo salário, baseado na tabela a seguir:
+Mulheres
+menos de 15 anos de empresa: +5%
+de 15 até 20 anos de empresa: +12%
+mais de 20 anos de empresa: +23%
+Homens
+menos de 20 anos de empresa: +3%
+de 20 até 30 anos de empresa: +13%
+mais de 30 anos de empresa: +25%
+30 Desenvolva um algoritmo que mostre uma contagem regressiva de 30 até 1,
+marcando os números que forem divisíveis por 4, exatamente como mostrado
+abaixo: 30 29 [28] 27 26 25 [24] 23 22 21 [20] 19 18 17 [16]...
+31 Crie um programa que calcule e mostre na tela o resultado da soma entre 6 + 8 +
+10 + 12 + 14 + ... + 98 + 100.
+32 Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450
++ 400 +350 + 300 + ... + 50 + 0
+33 Desenvolva uma aplicação que leia 6 números em um vetor, e no final mostre
+quantos deles são impares e quantos são pares. Imprima também os valores.
+34 Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
+na tela:
+Quais foram os números sorteados
+Quantos números estão acima de 5
+Quantos números são divisíveis por 3
+35
+36
+Desenvolva uma aplicação que leia o preço de 8 produtos, e armazenem em uma
+lista. No final, mostre na tela qual foi o maior e qual foi o menor preço informado.
+Crie um algoritmo que leia a idade de 10 pessoas, mostrando no final:
+Qual é a média de idade do grupo
+Quantas pessoas tem mais de 18 anos
+Quantas pessoas tem menos de 5 anos
+Qual foi a maior idade lida
+37
+Faça uma aplicação que leia a idade e o sexo de 5 pessoas, mostre no final:
+Quantos homens foram cadastrados
+Quantas mulheres foram cadastradas
+A média de idade do grupo
+A média de idade dos homens
+Quantas mulheres tem mais de 20 anos
+38 Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor.
+No final, mostre quais são os números pares que foram digitados e em que
+posições eles estão armazenados.
+
+39
+40
+Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre
+na tela:
+Crie um programa que leia a idade de 8 pessoas e guarde-as em um vetor. No
+final, mostre:
+Qual é a média de idade das pessoas cadastradas
+Em quais posições temos pessoas com mais de 25 anos
+Qual foi a maior idade digitada (podem haver repetições)
+Em que posições digitamos a maior idade
+41
+Faça um algoritmo que leia a nota de 10 alunos de uma turma e guarde-as em
+um vetor. No final, mostre:
+Qual é a média da turma
+Quantos alunos estão acima da média da turma
+Qual foi a maior nota digitada
+Em que posições a maior nota aparece
+42
+43
+44
+Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
+(entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números
+gerados e depois coloque o vetor em ordem crescente, mostrando no final os
+valores ordenados.
+Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses
+valores em dois vetores, em posições relacionadas. No final, mostre uma
+listagem contendo apenas os dados das pessoas menores de idade.
+Faça um algoritmo que leia o nome, o sexo e o salário de 5 funcionários e guarde
+esses dados em três vetores. No final, mostre uma listagem contendo apenas os
+dados das funcionárias mulheres que ganham mais de R$5 mil.
+*/
 
 // Exercício 11
 num calcularVolumeEsfera(double raio, double pi) {
@@ -198,18 +345,54 @@ double calcularNovoSalario(double salario, int anos) {
   double novoSalario = 0.00;
   if ((anos >= 0) && (anos < 3)) {
     num percentual = 3.00;
-    novoSalario = calcularAumentoSalario(salario, percentual);
+    novoSalario = calcularSalario(salario, percentual);
   } else if ((anos >= 3) && (anos < 10)) {
     num percentual = 12.50;
-    novoSalario = calcularAumentoSalario(salario, percentual);
+    novoSalario = calcularSalario(salario, percentual);
   } else if (salario >= 10) {
     num percentual = 20.00;
-    novoSalario = calcularAumentoSalario(salario, percentual);
+    novoSalario = calcularSalario(salario, percentual);
   }
   return novoSalario;
 }
 
 // Exercício 24
+void jogarJoKenPo(num jogador) {
+  Random random = Random();
+  int computador = random.nextInt(3);
+  print("$computador");
+  switch (jogador) {
+    case 0:
+      if (computador == 1) {
+        print("Você perdeu!");
+      } else if (computador == 2) {
+        print("Você ganhou!");
+      } else {
+        print("Empate");
+      }
+      break;
+    case 1:
+      if (computador == 0) {
+        print("Você ganhou!");
+      } else if (computador == 2) {
+        print("Você perdeu!");
+      } else {
+        print("Empate");
+      }
+      break;
+    case 2:
+      if (computador == 0) {
+        print("Você perdeu!");
+      } else if (computador == 1) {
+        print("Você ganhou!");
+      } else {
+        print("Empate");
+      }
+      break;
+    default:
+      print("Valor Inválido!");
+  }
+}
 
 // Exercício 25
 void calcularEmprestimo(double precoCasa, double salario, int anos) {
@@ -284,25 +467,25 @@ double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
     case 1:
       if (anosTrabalho < 15) {
         percentual = 5;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       } else if ((anosTrabalho >= 15) && (anosTrabalho <= 20)) {
         percentual = 12;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       } else {
         percentual = 23;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       }
       break;
     case 2:
       if (anosTrabalho < 20) {
         percentual = 3;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       } else if ((anosTrabalho >= 20) && (anosTrabalho <= 30)) {
         percentual = 13;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       } else {
         percentual = 25;
-        salarioRejustado = calcularAumentoSalario(salario, percentual);
+        salarioRejustado = calcularSalario(salario, percentual);
       }
       break;
     default:
@@ -652,6 +835,14 @@ void lerTresVetores() {
   }
 }
 
+String converterDecimal(double valor) {
+  return valor.toStringAsFixed(2);
+}
+
+void retornoNulo() {
+  print("Nenhuma informação pode ser nula.");
+}
+
 int menu() {
   print("Digite 0 para sair.");
   print("Digite 1 para o primeiro exercício.");
@@ -712,11 +903,12 @@ void main() {
         break;
       case 1:
         {
-          print("Informe o salário do funcionário:");
+          print("Qual é o salário atual desse funcionário?");
           String? valor = stdin.readLineSync();
           if (valor != null) {
             double salario = double.parse(valor);
-            print("O salário de ${converterDecimal(salario)} reais será reajustado para ${converterDecimal(calcularSalarioEmpresaABC(salario))} reais.");
+            num percentual = 25;
+            print("O salário atual desse funcionário é ${converterDecimal(salario)} reais e seu novo salaŕio será ${converterDecimal(calcularSalario(salario, percentual))} reais.");
           } else {
             print("O salário não pode ser nulo.");
           }
@@ -724,146 +916,146 @@ void main() {
         break;
       case 2:
         {
-          print("Informe o sálario do funcionário:");
+          print("Qual é o salário atual desse funcionário?");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor percentual que deve ser incrementado no salário deste funcionário:");
+          print("Qual é o valor percentual que deve ser incrementado no salário desse funcionário?");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
             double salario = double.parse(valor1);
             num percentual = num.parse(valor2);
-            print("O salário de ${converterDecimal(salario)} reais será reajustado para ${converterDecimal(calcularAumentoSalario(salario, percentual))} reais.");
+            print("O salário de ${converterDecimal(salario)} reais desse funcionário será reajustado para ${converterDecimal(calcularSalario(salario, percentual))} reais.");
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 3:
         {
-          print("Informe o ano de nascimento de uma pessoa:");
+          print("Qual é o ano do seu nascimento?");
           String? valor1 = stdin.readLineSync();
-          print("Informe o ano atual:");
+          print("Qual é o ano atual?");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
-            int anoNascimento = int.parse(valor1);
+            int anoDeNascimento = int.parse(valor1);
             int anoAtual = int.parse(valor2);
-            calcularIdade(anoNascimento, anoAtual);
+            calcularIdade(anoDeNascimento, anoAtual);
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 4:
         {
-          print("Informe o peso do saco de ração (em quilos):");
+          print("Qual é o peso do saco de ração?");
           String? valor1 = stdin.readLineSync();
-          print("Informe a quantidade de ração (em gramas) fornecida para o primeiro gato:");
+          print("Qual é a quantidade de ração fornecida para o primeiro gato?");
           String? valor2 = stdin.readLineSync();
-          print("Informe a quantidade de ração (em gramas) fornecida para o segundo gato:");
+          print("Qual é a quantidade de ração fornecida para o segundo gato?");
           String? valor3 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
             double pesoSacoRacao = double.parse(valor1);
             double quantidadeRacaoGato1 = double.parse(valor2);
             double quantidadeRacaoGato2 = double.parse(valor3);
-            print("A quantidade restante de ração após cinco dias é ${calcularRestoRacao(pesoSacoRacao, quantidadeRacaoGato1, quantidadeRacaoGato2)} kg.");
+            calcularRestoRacao(pesoSacoRacao, quantidadeRacaoGato1, quantidadeRacaoGato2);
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 5:
         {
-          print("Informe o valor da variável A:");
+          print("Digite o valor da variável A:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor da variável B:");
+          print("Digite o valor da variável B:");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
-            num A = num.parse(valor1);
-            num B = num.parse(valor2);
-            efetuarTrocaAB(A, B);
+            var A = valor1;
+            var B = valor2;
+            trocarValoresAB(A, B);
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 6:
         {
-          print("Informe as dimensões da caixa retangular em metros.");
-          print("Informe o comprimento:");
+          print("Digite as dimensões de uma caixa retangular.");
+          print("Digite o comprimento:");
           String? valor1 = stdin.readLineSync();
-          print("Informe a largura:");
+          print("Digite a largura:");
           String? valor2 = stdin.readLineSync();
-          print("Informe a altura:");
+          print("Digite a altura:");
           String? valor3 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
-            num comprimento = num.parse(valor1);
-            num largura = num.parse(valor2);
-            num altura = num.parse(valor3);
+            int comprimento = int.parse(valor1);
+            int largura = int.parse(valor2);
+            int altura = int.parse(valor3);
             print("O volume da caixa retangular é ${calcularVolumeCaixa(comprimento, largura, altura)} m³.");
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 7:
         {
-          print("Informe o valor da variável A:");
+          print("Digite o valor da variável A:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor da variável B:");
+          print("Digite o valor da variável B:");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
             int A = int.parse(valor1);
             int B = int.parse(valor2);
-            print("O valor do quadrado da diferença de A em relação a B é ${calcularQuadradoDiferenca(A, B)}");
+            print("O resultado de (A - B)² é ${calcularQuadradoDiferenca(A, B)}.");
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 8:
         {
-          print("Informe o valor em dolares:");
+          print("Digite o valor em dólares:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor da cotação do dólar:");
+          print("Digite o valor da cotação do dólar:");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
             double dolares = double.parse(valor1);
             double cotacao = double.parse(valor2);
-            print("O valor de ${converterDecimal(dolares)} dolares em reais é ${converterDecimal(calcularConvercaoDolarReal(dolares, cotacao))} reais.");
+            print("${converterDecimal(dolares)} dólares são ${converterDecimal(calcularConversaoDolar(dolares, cotacao))} reais.");
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 9:
         {
-          print("Informe o valor da variável A:");
+          print("Digite o valor da variável A:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor da variável B:");
+          print("Digite o valor da variável B:");
           String? valor2 = stdin.readLineSync();
-          print("Informe o valor da variável B:");
+          print("Digite o valor da variável C:");
           String? valor3 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
             int A = int.parse(valor1);
             int B = int.parse(valor2);
             int C = int.parse(valor3);
-            print("O valor do quadrado da soma entre A, B e C é ${calcularQuadradoSoma(A, B, C)}");
+            print("O resultado de (A + B + C)² é ${calcularQuadradoSoma(A, B, C)}.");
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
       case 10:
         {
-          print("Informe o valor da variável A:");
+          print("Digite o valor da variável A:");
           String? valor1 = stdin.readLineSync();
-          print("Informe o valor da variável B:");
+          print("Digite o valor da variável B:");
           String? valor2 = stdin.readLineSync();
           if ((valor1 != null) && (valor2 != null)) {
             num A = num.parse(valor1);
             num B = num.parse(valor2);
             calcularOperacoesBasicas(A, B);
           } else {
-            print("Nenhuma das informações pode ser nula.");
+            retornoNulo();
           }
         }
         break;
@@ -1043,7 +1235,17 @@ void main() {
         break;
       case 24:
         {
-          
+          print("Digite o número correspondente a sua escolha:"
+                "\n0: pedra"
+                "\n1: papel"
+                "\n2: tesoura");
+          String? valor = stdin.readLineSync();
+          if(valor != null) {
+            int jogador = int.parse(valor);
+            jogarJoKenPo(jogador);
+          } else {
+            retornoNulo();
+          }
         }
         break;
       case 25:
