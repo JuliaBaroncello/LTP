@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'dart:math';
 
+//Exercício 1 e 2
 double calcularSalario(double salario, num percentual) {
   return salario + (salario * percentual) / 100.00;
 }
 
+//Exercício 3
 void calcularIdade(int anoDeNascimento, int anoAtual) {
   int idade = anoAtual - anoDeNascimento;
   int idadeEmMeses = idade * 12;
@@ -16,6 +18,7 @@ void calcularIdade(int anoDeNascimento, int anoAtual) {
         "\nA sua idade em semanas é $idadeEmSemanas semanas.");
 }
 
+//Exercício 4
 void calcularRestoRacao(double pesoSacoRacao, double quantidadeRacaoGato1, double quantidadeRacaoGato2) {
   double restoRacao = ((pesoSacoRacao * 1000.00) - (quantidadeRacaoGato1 * 5) - (quantidadeRacaoGato2 * 5)) / 1000.00;
   if (restoRacao >= 0) {
@@ -25,6 +28,7 @@ void calcularRestoRacao(double pesoSacoRacao, double quantidadeRacaoGato1, doubl
   }
 }
 
+//Exercício 5
 void trocarValoresAB(var A, var B) {
   var aux = A;
   A = B;
@@ -34,23 +38,28 @@ void trocarValoresAB(var A, var B) {
         "\nB = $B");
 }
 
+//Exercício 6
 int calcularVolumeCaixa(int comprimento, int largura, int altura) {
   int volume = comprimento * largura * altura;
   return volume;
 }
 
+//Exercício 7
 num calcularQuadradoDiferenca(int A, int B) {
   return pow((A - B), 2);
 }
 
+//Exercício 8
 double calcularConversaoDolar(double dolares, double cotacao) {
   return dolares * cotacao;
 }
 
+//Exercício 9
 num calcularQuadradoSoma(int A, int B, int C) {
   return pow((A + B + C), 2);
 }
 
+//Exercício 10
 void calcularOperacoesBasicas(num A, num B) {
   num soma = A + B;
   num subtracao = A - B;
@@ -62,10 +71,12 @@ void calcularOperacoesBasicas(num A, num B) {
         "\nO resultado de A * B é $multiplicacao");
 }
 
+//Exercício 11
 num calcularVolumeEsfera(num raio) {
   return (4.00 * 3.14159 * pow(raio, 3)) / 3.00;
 }
 
+//Exercício 12
 void calcularSucessorAntecessor(int numero) {
   int sucessor = numero + 1;
   int antecessor = numero - 1;
@@ -73,6 +84,7 @@ void calcularSucessorAntecessor(int numero) {
         "\nO antecessor de $numero é $antecessor.");
 }
 
+//Exercício 13
 void calcularMulta(int velocidade) {
   int velocidadePermitida = 80;
   if (velocidade > velocidadePermitida) {
@@ -83,6 +95,7 @@ void calcularMulta(int velocidade) {
   }
 }
 
+//Exercício 14
 void calcularIdadeVoto(int anoDeNascimento) {
   int idade = 2022 - anoDeNascimento;
   if (idade >= 18) {
@@ -92,6 +105,7 @@ void calcularIdadeVoto(int anoDeNascimento) {
   }
 }
 
+//Exercício 15
 void calcularMedia(String nome, double nota1, double nota2) {
   double media = (nota1 + nota2) / 2.00;
   print("$nome a sua média é ${media.toStringAsFixed(1)}");
@@ -102,6 +116,7 @@ void calcularMedia(String nome, double nota1, double nota2) {
   }
 }
 
+//Exercício 16
 void verificarParidade(int numero) {
   if (numero % 2 == 0) {
     print("Esse número é par.");
@@ -110,6 +125,7 @@ void verificarParidade(int numero) {
   }
 }
 
+//Exercício 17
 void verificarAlistamentoMilitar(int anoDeNascimento) {
   int idade = 2022 - anoDeNascimento;
   int idadeAlistamento = 18;
@@ -122,6 +138,7 @@ void verificarAlistamentoMilitar(int anoDeNascimento) {
   }
 }
 
+//Exercício 18
 void calcularDesconto(String nome, int sexo, double valorCompras) {
   double desconto;
   if (sexo == 1) {
@@ -135,6 +152,7 @@ void calcularDesconto(String nome, int sexo, double valorCompras) {
   }
 }
 
+//Exercício 19
 double calcularPrecoPassagem(int distancia) {
   double precoPassagem;
   if (distancia <= 200) {
@@ -146,26 +164,51 @@ double calcularPrecoPassagem(int distancia) {
 }
 
 // Exercício 20
-/*
-20 Escreva um aplicativo que leia na tela uma das mensagens abaixo: segmentos
-formarem um triângulo, o comprimento soma dos outros dois. dois números
-inteiros e compare-os, mostrando - O primeiro valor é o maior - O segundo valor é
-o maior - Não existe valor maior, os dois são iguais
-*/
+void compararSegmentos(num A, num B, num C) {
+  if (A + B == C) {
+    if (A > B) {
+      print("O primeiro valor é o maior.");
+    } else if (A < B) {
+      print("O segundo valor é o maior.");
+    } else {
+      print("Não existe valor maior, os dois são iguais.");
+    }
+  } else if (A + C == B) {
+    if (A > C) {
+      print("O primeiro valor é o maior.");
+    } else if (A < C) {
+      print("O segundo valor é o maior.");
+    } else {
+      print("Não existe valor maior, os dois são iguais.");
+    }
+  } else if (B + C == A) {
+    if (B > C) {
+      print("O primeiro valor é o maior.");
+    } else if (B < C) {
+      print("O segundo valor é o maior.");
+    } else {
+      print("Não existe valor maior, os dois são iguais.");
+    }
+  } else {
+    print("Os segmentos não formam um triângulo.");
+  }
+}
 
+//Exercício 21
 void calcularMediaAluno(double nota1, double nota2) {
   double media = (nota1 + nota2) / 2.00;
   if ((media >= 0.0) && (media <= 4.9)) {
-    print("Reprovado.");
+    print("Você foi reprovado.");
   } else if ((media >= 5.0) && (media <= 6.9)) {
-    print("Recuperação.");
+    print("Você está em recuperação.");
   } else if ((media >= 7.0) && (media <= 10.0)) {
-    print("Aprovado.");
+    print("Você foi aprovado.");
   } else {
     print("Nota inválida.");
   }
 }
 
+//Exercício 22
 void calcularArea(int largura, int comprimento) {
   int area = largura * comprimento;
   print("A área desse terreno é $area m²."
@@ -181,6 +224,7 @@ void calcularArea(int largura, int comprimento) {
   }
 }
 
+//Exercício 23
 double calcularNovoSalario(double salario, int anos) {
   double novoSalario = 0;
   if ((anos >= 0) && (anos < 3)) {
@@ -198,6 +242,7 @@ double calcularNovoSalario(double salario, int anos) {
   return novoSalario;
 }
 
+//Exercício 24
 void jogarJoKenPo(num jogador) {
   Random random = Random();
   int computador = random.nextInt(3);
@@ -212,6 +257,7 @@ void jogarJoKenPo(num jogador) {
       }
       break;
     case 1:
+
       if (computador == 0) {
         print("Você ganhou!");
       } else if (computador == 2) {
@@ -221,6 +267,7 @@ void jogarJoKenPo(num jogador) {
       }
       break;
     case 2:
+
       if (computador == 0) {
         print("Você perdeu!");
       } else if (computador == 1) {
@@ -229,11 +276,13 @@ void jogarJoKenPo(num jogador) {
         print("Empate");
       }
       break;
-    default:
+    default
+      :
       print("Valor Inválido!");
   }
 }
 
+//Exercício 25
 void calcularEmprestimo(double precoCasa, double salario, int anos) {
   double parcela = precoCasa / anos / 12;
   double porcentagemSalario = (parcela * 100) / 1000.00;
@@ -244,6 +293,7 @@ void calcularEmprestimo(double precoCasa, double salario, int anos) {
   }
 }
 
+//Exercício 26
 void calcularIMC(double altura, double peso) {
   double imc = peso / pow(altura, 2);
   if (imc < 18.5) {
@@ -261,6 +311,7 @@ void calcularIMC(double altura, double peso) {
   }
 }
 
+//Exercício 27
 double calcularAluguelCarro(int tipoCarro, int diasAluguel, int quilometros) {
   double precoAluguel = 0;
   switch (tipoCarro) {
@@ -272,18 +323,21 @@ double calcularAluguelCarro(int tipoCarro, int diasAluguel, int quilometros) {
       }
       break;
     case 2:
+
       if (quilometros <= 200) {
         precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.30);
       } else {
         precoAluguel = (150.00 * diasAluguel) + (quilometros * 0.25);
       }
       break;
-    default:
+    default
+      :
       print("Informação Inválida.");
   }
   return precoAluguel;
 }
 
+//Exercício 28
 void calcularPontos(int horasAtividades) {
   int pontos = 0;
   if (horasAtividades < 10) {
@@ -296,6 +350,7 @@ void calcularPontos(int horasAtividades) {
   print("Você fez $pontos pontos e ganhou ${converterDecimal(pontos * 0.05)} reais.");
 }
 
+//Exercício 29
 double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
   double salarioReajustado = 0;
   num percentual = 0;
@@ -313,6 +368,7 @@ double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
       }
       break;
     case 2:
+
       if (anosTrabalho < 20) {
         percentual = 3;
         salarioReajustado = calcularSalario(salario, percentual);
@@ -324,12 +380,14 @@ double calcularReajusteSalario(double salario, int genero, int anosTrabalho) {
         salarioReajustado = calcularSalario(salario, percentual);
       }
       break;
-    default:
+    default
+      :
       print("Informação Inválida.");
   }
   return salarioReajustado;
 }
 
+//Exercício 30
 void realizarContagemRegressiva() {
   for (int i = 30; i >= 1; i--) {
     if (i % 4 == 0) {
@@ -340,6 +398,7 @@ void realizarContagemRegressiva() {
   }
 }
 
+//Exercício 31
 int calcularSoma() {
   int soma = 0;
   for (int i = 6; i <= 100; i += 2) {
@@ -348,6 +407,7 @@ int calcularSoma() {
   return soma;
 }
 
+//Exercício 32
 int calcularExpressao() {
   int soma = 0;
   for (int i = 500; i >= 0; i -= 50) {
@@ -356,17 +416,8 @@ int calcularExpressao() {
   return soma;
 }
 
-void verificarVetor() {
-  List<int> listaNumeros = [];
-  for (int i = 0; i < 6; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      int numero = int.parse(valor);
-      listaNumeros.add(numero);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 33
+void verificarVetor(List<int> listaNumeros) {
   List<int> listaImpar = [];
   List<int> listaPar = [];
   int somaImpar = 0;
@@ -385,8 +436,8 @@ void verificarVetor() {
         "\nOs números ímpares são $listaImpar e os números pares são $listaPar.");
 }
 
-void verificarNumerosSorteados() {
-  List listaNumeros = sortearNumeros();
+//Exercício 34
+void verificarNumerosSorteados(List<int> listaNumeros) {
   int maior = 0;
   int divisivel = 0;
   for (int i = 0; i < 20; i++) {
@@ -402,33 +453,15 @@ void verificarNumerosSorteados() {
         "\n$divisivel números são divisíveis por 3.");
 }
 
-void listarPrecos() {
-  List<double> listaPrecos = [];
-  for (int i = 0; i < 8; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      double precoProduto = double.parse(valor);
-      listaPrecos.add(precoProduto);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 35
+void listarPrecos(List<double> listaPrecos) {
   listaPrecos.sort();
   print("O maior preço informado é ${converterDecimal(listaPrecos[7])} reais."
         "\nE o menor preço informado é ${converterDecimal(listaPrecos[0])} reais.");
 }
 
-void verificarIdade() {
-  List<int> listaIdade = [];
-  for (int i = 0; i < 10; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      int idade = int.parse(valor);
-      listaIdade.add(idade);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 36
+void verificarIdade(List<int> listaIdade) {
   int somaIdade = 0;
   int maior = 0;
   int menor = 0;
@@ -448,21 +481,8 @@ void verificarIdade() {
         "\nA maior idade do grupo é ${listaIdade[9]} anos.");
 }
 
-void verificarLista() {
-  List<int> listaIdade = [];
-  List<int> listaSexo = [];
-  for (int i = 0; i < 5; i++) {
-    String? valor1 = stdin.readLineSync();
-    String? valor2 = stdin.readLineSync();
-    if((valor1 != null) && (valor2 != null)) {
-      int idade = int.parse(valor1);
-      int sexo = int.parse(valor2);
-      listaIdade.add(idade);
-      listaSexo.add(sexo);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 37
+void verificarLista(List<int> listaIdade, List<int> listaSexo) {
   int homens = 0;
   int mulheres = 0;
   int somaIdade = 0;
@@ -477,10 +497,12 @@ void verificarLista() {
         }
         break;
       case 2:
+
         homens = homens + 1;
         somaIdadeHomens = somaIdadeHomens + listaIdade[i];
         break;
-      default:
+      default
+        :
         print("Valor Inválido.");
     }
     somaIdade = somaIdade + listaIdade[i];
@@ -494,17 +516,8 @@ void verificarLista() {
         "\nExistem $somaMulheres mulheres com mais de 20 anos.");
 }
 
-void verificarPosicaoVetor() {
-  List<int> listaNumeros = [];
-  for (int i = 0; i < 10; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      int numero = int.parse(valor);
-      listaNumeros.add(numero);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 38
+void verificarPosicaoVetor(List<int> listaNumeros) {
   print("Os números pares desse vetor são:");
   for (int i = 0; i < 10; i++) {
     if (listaNumeros[i] % 2 == 0) {
@@ -513,7 +526,8 @@ void verificarPosicaoVetor() {
   }
 }
 
-List sortearNumeros() {
+//Exercício 39
+List<int> sortearNumeros() {
   var numeros = Random();
   List<int> listaNumeros = [];
   for (int i = 0; i < 20; i++) {
@@ -522,17 +536,8 @@ List sortearNumeros() {
   return listaNumeros;
 }
 
-void verificarVetorIdades() {
-  List<int> listaIdade = [];
-  for (int i = 0; i < 8; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      int idade = int.parse(valor);
-      listaIdade.add(idade);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 40
+void verificarVetorIdades(List<int> listaIdade) {
   int somaIdade = 0;
   int maiorIdade = 0;
   List<int> listaPosicoes = [];
@@ -558,17 +563,8 @@ void verificarVetorIdades() {
         "\nA maior idade foi digitada nas posições $listaMaiorIdade.");
 }
 
-void verificarVetorNotas() {
-  List<double> listaNotas = [];
-  for (int i = 0; i < 10; i++) {
-    String? valor = stdin.readLineSync();
-    if (valor != null) {
-      double nota = double.parse(valor);
-      listaNotas.add(nota);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 41
+void verificarVetorNotas(List<double> listaNotas) {
   double somaNotas = 0;
   double maiorNota = 0;
   for (int i = 0; i < 10; i++) {
@@ -594,6 +590,7 @@ void verificarVetorNotas() {
         "\nA maior nota aparece nas posições: $listaMaiorNota.");
 }
 
+//Exercício 42
 void preencherVetorAleatorio() {
   var numeros = Random();
   List<int> listaNumeros = [];
@@ -605,21 +602,8 @@ void preencherVetorAleatorio() {
   print("Vetor Ordenado:  $listaNumeros.");
 }
 
-void verificarVetores() {
-  List<String> listaNome = [];
-  List<int> listaIdade = [];
-  for (int i = 0; i < 9; i++) {
-    String? valor1 = stdin.readLineSync();
-    String? valor2 = stdin.readLineSync();
-    if ((valor1 != null) && (valor2 != null)) {
-      String nome = valor1.toString();
-      int idade = int.parse(valor2);
-      listaNome.add(nome);
-      listaIdade.add(idade);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 43
+void verificarVetores(List<String> listaNome, List<int> listaIdade) {
   print("As pessoas menores de idade são:");
   for (int i = 0; i < 9; i++) {
     if (listaIdade[i] < 18) {
@@ -628,25 +612,8 @@ void verificarVetores() {
   }
 }
 
-void verificarTresVetores() {
-  List<String> listaNomes = [];
-  List<int> listaSexo = [];
-  List<double> listaSalario = [];
-  for (int i = 0; i < 5; i++) {
-    String? valor1 = stdin.readLineSync();
-    String? valor2 = stdin.readLineSync();
-    String? valor3 = stdin.readLineSync();
-    if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
-      String nome = valor1.toString();
-      int sexo = int.parse(valor2);
-      double salario = double.parse(valor3);
-      listaNomes.add(nome);
-      listaSexo.add(sexo);
-      listaSalario.add(salario);
-    } else {
-      valorNulo();
-    }
-  }
+//Exercício 44
+void verificarTresVetores(List<String> listaNomes, List<int> listaSexo, List<double> listaSalario) {
   print("As mulheres que ganham mais de 5 mil são:");
   for (int i = 0; i < 5; i++) {
     if (listaSexo[i] == 1) {
@@ -730,7 +697,7 @@ void main() {
           if (valor != null) {
             double salario = double.parse(valor);
             num percentual = 25;
-            print("O salário atual desse funcionário é ${converterDecimal(salario)} reais e seu novo salaŕio será ${converterDecimal(calcularSalario(salario, percentual))} reais.");
+            print("O salário atual desse funcionário é ${converterDecimal(salario)} reais e seu novo salário será ${converterDecimal(calcularSalario(salario, percentual))} reais.");
           } else {
             valorNulo();
           }
@@ -801,8 +768,8 @@ void main() {
         break;
       case 6:
         {
-          print("Digite as dimensões de uma caixa retangular.");
-          print("Digite o comprimento:");
+          print("Digite as dimensões de uma caixa retangular."
+                "\nDigite o comprimento:");
           String? valor1 = stdin.readLineSync();
           print("Digite a largura:");
           String? valor2 = stdin.readLineSync();
@@ -1005,7 +972,19 @@ void main() {
         break;
       case 20:
         {
-          
+          print("Digite o valor das medidas de três segmentos:"
+                "\nUma medida por linha.");
+          String? valor1 = stdin.readLineSync();
+          String? valor2 = stdin.readLineSync();
+          String? valor3 = stdin.readLineSync();
+          if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
+            num A = num.parse(valor1);
+            num B = num.parse(valor2);
+            num C = num.parse(valor3);
+            compararSegmentos(A, B, C);
+          } else {
+            valorNulo();
+          }
         }
         break;
       case 21:
@@ -1076,7 +1055,7 @@ void main() {
         {
           print("Qual é o valor da casa?");
           String? valor1 = stdin.readLineSync();
-          print("Qual é o seu salárior?");
+          print("Qual é o seu salário?");
           String? valor2 = stdin.readLineSync();
           print("Em quantos anos você vai pagar?");
           String? valor3 = stdin.readLineSync();
@@ -1177,26 +1156,57 @@ void main() {
         {
           print("Digite um vetor de 6 posições:"
                 "\nUm número por linha.");
-          verificarVetor();
+          List<int> listaNumeros = [];
+          for (int i = 0; i < 6; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              int numero = int.parse(valor);
+              listaNumeros.add(numero);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarVetor(listaNumeros);
         }
         break;
       case 34:
         {
-          verificarNumerosSorteados();
+          List<int> listaNumeros = sortearNumeros();
+          verificarNumerosSorteados(listaNumeros);
         }
         break;
       case 35:
         {
           print("Digite os preços de 8 produtos:"
                 "\nUm preço por linha.");
-          listarPrecos();
+          List<double> listaPrecos = [];
+          for (int i = 0; i < 8; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              double precoProduto = double.parse(valor);
+              listaPrecos.add(precoProduto);
+            } else {
+              valorNulo();
+            }
+          }
+          listarPrecos(listaPrecos);
         }
         break;
       case 36:
         {
           print("Digite a idade de 10 pessoas:"
                 "\nUma idade por linha.");
-          verificarIdade();
+          List<int> listaIdade = [];
+          for (int i = 0; i < 10; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              int idade = int.parse(valor);
+              listaIdade.add(idade);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarIdade(listaIdade);
         }
         break;
       case 37:
@@ -1205,14 +1215,38 @@ void main() {
                 "\nUma informação por linha, primeiro a idade e depois o sexo."
                 "\n1: feminino"
                 "\n2: masculino");
-          verificarLista();
+          List<int> listaIdade = [];
+          List<int> listaSexo = [];
+          for (int i = 0; i < 5; i++) {
+            String? valor1 = stdin.readLineSync();
+            String? valor2 = stdin.readLineSync();
+            if((valor1 != null) && (valor2 != null)) {
+              int idade = int.parse(valor1);
+              int sexo = int.parse(valor2);
+              listaIdade.add(idade);
+              listaSexo.add(sexo);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarLista(listaIdade, listaSexo);
         }
         break;
       case 38:
         {
           print("Digite 10 números:"
                 "\nUm número por linha.");
-          verificarPosicaoVetor();
+          List<int> listaNumeros = [];
+          for (int i = 0; i < 10; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              int numero = int.parse(valor);
+              listaNumeros.add(numero);
+            } else {
+            valorNulo();
+            }
+          }
+          verificarPosicaoVetor(listaNumeros);
         }
         break;
       case 39:
@@ -1224,14 +1258,34 @@ void main() {
         {
           print("Digite a idade de 8 pessoas:"
                 "\nUma idade por linha.");
-          verificarVetorIdades();
+          List<int> listaIdade = [];
+          for (int i = 0; i < 8; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              int idade = int.parse(valor);
+              listaIdade.add(idade);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarVetorIdades(listaIdade);
         }
         break;
       case 41:
         {
           print("Digite as notas de 10 alunos:"
                 "\nUma nota por linha.");
-          verificarVetorNotas();
+          List<double> listaNotas = [];
+          for (int i = 0; i < 10; i++) {
+            String? valor = stdin.readLineSync();
+            if (valor != null) {
+              double nota = double.parse(valor);
+              listaNotas.add(nota);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarVetorNotas(listaNotas);
         }
         break;
       case 42:
@@ -1243,7 +1297,21 @@ void main() {
         {
           print("Digite o nome e a idade de 9 pessoas:"
                 "\nUma informação por linha, primeiro o nome e depois a idade.");
-          verificarVetores();
+          List<String> listaNome = [];
+          List<int> listaIdade = [];
+          for (int i = 0; i < 9; i++) {
+            String? valor1 = stdin.readLineSync();
+            String? valor2 = stdin.readLineSync();
+            if ((valor1 != null) && (valor2 != null)) {
+              String nome = valor1.toString();
+              int idade = int.parse(valor2);
+              listaNome.add(nome);
+              listaIdade.add(idade);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarVetores(listaNome, listaIdade);
         }
         break;
       case 44:
@@ -1252,7 +1320,25 @@ void main() {
                 "\nDigite uma informação em cada linha, primeiro o nome, depois o sexo e depois o salário."
                 "\n1: feminino"
                 "\n2: masculino");
-          verificarTresVetores();
+          List<String> listaNomes = [];
+          List<int> listaSexo = [];
+          List<double> listaSalario = [];
+          for (int i = 0; i < 5; i++) {
+            String? valor1 = stdin.readLineSync();
+            String? valor2 = stdin.readLineSync();
+            String? valor3 = stdin.readLineSync();
+            if ((valor1 != null) && (valor2 != null) && (valor3 != null)) {
+              String nome = valor1.toString();
+              int sexo = int.parse(valor2);
+              double salario = double.parse(valor3);
+              listaNomes.add(nome);
+              listaSexo.add(sexo);
+              listaSalario.add(salario);
+            } else {
+              valorNulo();
+            }
+          }
+          verificarTresVetores(listaNomes, listaSexo, listaSalario);
         }
         break;
       default:
